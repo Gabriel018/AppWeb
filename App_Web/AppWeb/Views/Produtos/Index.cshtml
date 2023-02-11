@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AppWeb.Models.Produtos>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>Produtos</h1>
+
+<p>
+    <a asp-action="Create">Adicionar cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MyProperty1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyProperty2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyProperty3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MyProperty1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MyProperty2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MyProperty3)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
